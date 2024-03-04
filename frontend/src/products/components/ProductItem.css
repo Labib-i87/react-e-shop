@@ -33,33 +33,66 @@
 
 }
 
-.product-functions {
-  display: flex
+.product-functions  {
+  display: flex;
+  height: 3em
 }
 
-.product-functions button{
+.product-functions .button {
+  text-decoration: none;
   margin: 0;
   width: 100%;
-  color: white;
-  height: 3em;
-  font-weight: 300;
-  cursor: pointer
+
+  height: 100%;
+  font-weight: 400;
+  cursor: pointer;
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 .editButton {
   background-color: rgb(253, 184, 55);
+  color: white;
+  justify-content: center;
 }
 
 .editButton:hover{
   background-color: rgb(255, 223, 163);
+  color: white;
   color: rgb(100, 100, 100)
 }
 
 .deleteButton {
   background-color: #f44336;
+  color: white;
 }
 
 .deleteButton:hover {
   background-color: #ffada7;
+  color: white;
+  color: rgb(100, 100, 100);
+}
+
+.cancelButton {
+  background-color: rgb(236, 247, 252);
+  color: rgb(53, 53, 53);
+  justify-content: center;
+}
+
+.cancelButton:hover{
+  background-color: rgb(228, 228, 228);
+  color: white;
+  color: rgb(100, 100, 100)
+}
+
+.saveButton {
+  background-color: #3678f4;
+  color: white;
+}
+
+.saveButton:hover {
+  background-color: #7fabfc;
+  color: white;
   color: rgb(100, 100, 100);
 }

@@ -20,12 +20,7 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  return (
-    <>
-      {loadedProducts && <ProductList items={loadedProducts} />}
-      {console.log(loadedProducts)}
-    </>
-  );
+  return <>{loadedProducts && <ProductList items={loadedProducts} />}</>;
 };
 
 export default Products;

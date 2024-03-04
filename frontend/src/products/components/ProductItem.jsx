@@ -1,15 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import AuthContext from "../../shared/context/AuthContext";
 import "./ProductItem.css";
+import { useHistory } from "react-router-dom";
 
 const ProductItem = (props) => {
   const { userId } = useContext(AuthContext);
   const [loadedProduct, setLoadedProduct] = useState();
   const pid = useParams().pid;
-  let count = 0;
 
   const fetchProduct = async () => {
     try {
@@ -23,13 +23,23 @@ const ProductItem = (props) => {
     }
   };
 
-  const counter = () => {
-    count++;
-  };
-
   useEffect(() => {
     fetchProduct();
   }, []);
+
+  const history = useHistory();
+
+  const productDeleteHandler = async () => {
+    try {
+      const responseData = await axios.delete(
+        `http://localhost:5000/product/${pid}`
+      );
+
+      history.push(`/${userId}/products`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -52,8 +62,18 @@ const ProductItem = (props) => {
 
           {userId == loadedProduct.creator && (
             <div className="product-functions">
-              <button className="editButton">EDIT</button>
-              <button className="deleteButton">DELETE</button>
+              <Link
+                to={`/products/${loadedProduct._id}/edit`}
+                className="button editButton"
+              >
+                EDIT
+              </Link>
+              <button
+                onClick={productDeleteHandler}
+                className="button deleteButton"
+              >
+                DELETE
+              </button>
             </div>
           )}
         </main>

@@ -6,7 +6,7 @@ import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const AddProduct = () => {
-  const { getLoggedIn } = useContext(AuthContext);
+  // const { getLoggedIn } = useContext(AuthContext);
   const [formContent, setFormContent] = useState({
     name: "",
     description: "",

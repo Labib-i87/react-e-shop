@@ -11,6 +11,7 @@ import AddProduct from "./products/pages/AddProduct";
 import UserProducts from "./products/pages/UserProducts";
 import ProductItem from "./products/components/ProductItem";
 import Products from "./products/pages/Products";
+import UpdateProduct from "./products/pages/UpdateProduct";
 
 const Router = () => {
   const { loggedIn, userId, username, role } = useContext(AuthContext);
@@ -29,6 +30,9 @@ const Router = () => {
           </Route>
           <Route path="/products/new">
             <AddProduct />
+          </Route>
+          <Route path="/products/:pid/edit">
+            <UpdateProduct />
           </Route>
           <Route path="/products/:pid">
             <ProductItem />

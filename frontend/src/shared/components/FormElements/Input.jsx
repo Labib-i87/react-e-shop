@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./FormStyle.css";
 
 const Input = (props) => {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(props.value ? props.value : "");
 
   const element = {
     input: (
