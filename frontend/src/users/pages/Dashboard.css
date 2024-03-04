@@ -1,0 +1,4 @@
+.dashboard-list {
+  display: flex;
+  flex-direction: column;
+}

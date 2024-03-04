@@ -1,0 +1,38 @@
+.form-elements {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  margin: 20px
+}
+
+button {
+  margin: 20px;
+  width: 80px;
+  height: 30px;
+  background-color: rgb(255, 211, 66);
+  border: none;
+  color: rgb(83, 83, 83);
+  font-weight: 700;
+}
+
+
+.input-elements {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding-bottom: 20px;
+}
+
+.input-elements input, select {
+  width: 40%;
+  height: 25px;
+  margin-top: 10px;
+  
+}
+
+.input-elements textarea {
+  width: 40%;
+  margin-top: 10px;
+}

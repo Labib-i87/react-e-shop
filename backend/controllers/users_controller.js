@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
   try {
-    const { email, password, passwordVerify } = req.body;
+    const { username, email, password, passwordVerify, role } = req.body;
 
-    if (!email || !password || !passwordVerify) {
+    if (!username || !email || !password || !passwordVerify || !role) {
       return res
         .status(400)
         .json({ errorMessage: "Please enter all required fields." });
@@ -31,8 +31,11 @@ const signup = async (req, res) => {
     // save new user to the DB
 
     const newUser = new User({
+      username,
       email,
       password: hashedPassword,
+      role,
+      products: [],
     });
 
     const savedUser = await newUser.save();
@@ -41,7 +44,9 @@ const signup = async (req, res) => {
 
     const token = jwt.sign(
       {
-        user: savedUser._id,
+        username: savedUser.username,
+        userId: savedUser._id,
+        role: savedUser.role,
       },
       process.env.JWT_SECRET
     );
@@ -86,7 +91,9 @@ const login = async (req, res) => {
 
     const token = jwt.sign(
       {
-        user: existingUser._id,
+        username: existingUser.username,
+        userId: existingUser._id,
+        role: existingUser.role,
       },
       process.env.JWT_SECRET
     );
@@ -113,6 +120,37 @@ const logout = (req, res) => {
     .send();
 };
 
+const isLoggedIn = (req, res) => {
+  const nonVerifiedData = {
+    verified: false,
+    username: null,
+    userId: null,
+    role: null,
+  };
+
+  try {
+    const token = req.cookies.token;
+
+    if (!token) {
+      return res.json(nonVerifiedData);
+    }
+
+    const verifiedToken = jwt.verify(token, process.env.JWT_SECRET);
+
+    const verifiedData = {
+      verified: true,
+      username: verifiedToken.username,
+      userId: verifiedToken.userId,
+      role: verifiedToken.role,
+    };
+
+    res.send(verifiedData);
+  } catch (err) {
+    res.json(nonVerifiedData);
+  }
+};
+
 exports.signup = signup;
 exports.login = login;
 exports.logout = logout;
+exports.isLoggedIn = isLoggedIn;

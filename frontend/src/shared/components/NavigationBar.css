@@ -24,12 +24,14 @@ nav a {
   color: rgb(83, 83, 83)
 }
 
-nav a:hover {
+.nav-items a:hover,
+.nav-items a:active,
+.nav-items a.active {
   background-color: #ffecb8;
 }
 
 nav li:first-child {
   margin-right: auto;
-  font-weight: bold;
-  
+  font-weight: bold; 
 }
+

@@ -1,19 +1,19 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useContext } from "react";
 import NavigationBar from "./shared/components/NavigationBar";
+import Router from "./Router";
+import axios from "axios";
 
-import Auth from "./users/pages/Auth";
+import Signup from "./users/pages/Signup";
+import Login from "./users/pages/Login";
+import AuthContext, { AuthContextProvider } from "./shared/context/AuthContext";
+
+axios.defaults.withCredentials = true;
 
 const App = () => {
   return (
-    <Router>
-      <NavigationBar />
-      <Switch>
-        <Route path="/login">
-          <Auth />
-        </Route>
-      </Switch>
-    </Router>
+    <AuthContextProvider>
+      <Router />
+    </AuthContextProvider>
   );
 };
 
