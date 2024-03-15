@@ -41,6 +41,18 @@ const ProductItem = (props) => {
     }
   };
 
+  const addToCartHandler = async () => {
+    try {
+      const responseData = await axios.post(
+        `http://localhost:5000/cart/${pid}`
+      );
+      console.log(responseData);
+      history.goBack();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <>
       {loadedProduct && (
@@ -60,7 +72,7 @@ const ProductItem = (props) => {
             </div>
           </div>
 
-          {userId == loadedProduct.creator && (
+          {userId == loadedProduct.creator ? (
             <div className="product-functions">
               <Link
                 to={`/products/${loadedProduct._id}/edit`}
@@ -73,6 +85,21 @@ const ProductItem = (props) => {
                 className="button deleteButton"
               >
                 DELETE
+              </button>
+            </div>
+          ) : (
+            <div className="product-functions">
+              <button
+                onClick={() => history.goBack()}
+                className="button secondaryButton"
+              >
+                GO BACK
+              </button>
+              <button
+                onClick={addToCartHandler}
+                className="button primaryButton"
+              >
+                ADD TO CART
               </button>
             </div>
           )}

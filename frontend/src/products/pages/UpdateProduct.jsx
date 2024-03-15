@@ -103,11 +103,11 @@ const UpdateProduct = () => {
               <div className="product-functions">
                 <Link
                   to={`/products/${loadedProduct._id}`}
-                  className="button cancelButton"
+                  className="button secondaryButton"
                 >
                   CANCEL
                 </Link>
-                <button type="submit" className="button saveButton">
+                <button type="submit" className="button primaryButton">
                   SAVE
                 </button>
               </div>

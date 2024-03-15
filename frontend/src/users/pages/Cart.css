@@ -1,0 +1,35 @@
+.cart-page_main {
+  /* border: 2px solid; */
+  min-height: 100vh;
+  margin: 5rem 3rem 3rem;
+  display: flex
+}
+
+.cart-product-list {
+  /* border: 2px solid; */
+  width: 60%;
+  margin: 2rem
+
+}
+
+.cart-subtotal {
+  /* border: 2px solid; */
+  margin: 2rem;
+  padding: 3rem;
+  width: 40%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+
+
+.cart-subtotal h4 {
+  padding-left: 2rem;
+  font-size: 1.3rem;
+  font-weight: 500;
+
+}

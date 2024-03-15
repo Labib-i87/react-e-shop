@@ -1,6 +1,9 @@
 nav {
-  background-color: rgb(255, 211, 66);
+  background-color: rgb(255, 255, 255);
   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0px;
 }
 
 nav ul {
@@ -27,7 +30,7 @@ nav a {
 .nav-items a:hover,
 .nav-items a:active,
 .nav-items a.active {
-  background-color: #ffecb8;
+  background-color: #eeeeee;
 }
 
 nav li:first-child {
