@@ -38,3 +38,4 @@ app.use(
 app.use("/auth", require("./routers/userRouter"));
 app.use("/product", require("./routers/productRouter"));
 app.use("/cart", require("./routers/cartRouter"));
+app.use("/purchaseHistory", require("./routers/purchaseHistoryRouter"));

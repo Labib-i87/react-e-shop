@@ -1,11 +1,14 @@
 .main-card-parent {
-  margin: 2em;
-  width: 50em
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .main-card {
   background-color: rgb(235, 235, 235);
-  height: 20em;
-  width: 50em;
+  width: 50rem;
+  height: 20rem;
   display: flex;
 }
 
@@ -35,7 +38,8 @@
 
 .product-functions  {
   display: flex;
-  height: 3em
+  height: 3em;
+  width: 50rem;
 }
 
 .product-functions .button {

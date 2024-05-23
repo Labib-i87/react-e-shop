@@ -4,6 +4,8 @@ import CartItem from "../../products/components/CartItem";
 
 import "./Cart.css";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import PaymentMethod from "../../shared/components/PaymentMethod";
 
 const Cart = () => {
   const [loadedProducts, setLoadedProducts] = useState();
@@ -39,20 +41,37 @@ const Cart = () => {
           <LoadingSpinner />
         </div>
       )}
-      {!isLoading && loadedProducts && (
+
+      {!isLoading && loadedProducts.length !== 0 && (
         <main className="cart-page_main">
           <div className="cart-product-list">
             <CartItem items={loadedProducts} onDelete={cartItemDeleteHandler} />
           </div>
-          <div className="cart-subtotal">
-            <h3>Subtotal:</h3>
-            <h4>
-              {loadedProducts.reduce((total, item) => total + item.price, 0)}/=
-            </h4>
+          <div className="cart-payment">
+            <div className="cart-subtotal">
+              <div className="cart-subtotal_content">
+                <h3>Subtotal:</h3>
+                <h4>
+                  {loadedProducts.reduce(
+                    (total, item) => total + item.price,
+                    0
+                  )}
+                  /=
+                </h4>
+              </div>
+              {/* <div className="checkout-button">
+                <Link>Choose Payment Method</Link>
+              </div> */}
+            </div>
+            <div className="cart-payment_content">
+              <PaymentMethod loadedProducts={loadedProducts} />
+            </div>
           </div>
         </main>
       )}
-      {!isLoading && !loadedProducts && <h2>Cart is empty</h2>}
+      {!isLoading && loadedProducts.length == 0 && (
+        <h2 className="center">Cart is empty</h2>
+      )}
     </>
   );
 };

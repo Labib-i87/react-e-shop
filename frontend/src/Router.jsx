@@ -80,7 +80,7 @@ const Router = () => {
   return (
     <BrowserRouter>
       <NavigationBar />
-      <main>{routes}</main>
+      <main className="main">{routes}</main>
     </BrowserRouter>
   );
 };

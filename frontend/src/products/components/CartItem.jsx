@@ -1,19 +1,22 @@
 import React from "react";
 
 import "./CartItem.css";
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const CartItem = (props) => {
   return (
     <>
       {props.items.map((item) => (
         <main key={item._id} className="cart-item_main">
-          <div className="cart-item_image">
-            <img src={`http://localhost:5000/${item.imageUrl}`} alt="image" />
-          </div>
-          <div className="cart-item_content">
-            <h1>{item.name}</h1>
-            <h3>Price: {item.price}</h3>
-          </div>
+          <Link className="cart-item_link" to={`/products/${item._id}`}>
+            <div className="cart-item_image">
+              <img src={`http://localhost:5000/${item.imageUrl}`} alt="image" />
+            </div>
+            <div className="cart-item_content">
+              <h1>{item.name}</h1>
+              <h3>Price: {item.price}</h3>
+            </div>
+          </Link>
           <div className="cart-action">
             <button onClick={() => props.onDelete(item._id)}>
               <svg

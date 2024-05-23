@@ -1,0 +1,64 @@
+.accordion {
+  /* margin: 60px auto;*/
+  /* width: 600px;  */
+  /* width: 100%; */
+}
+
+.accordion li {
+  list-style: none;
+  width: 100%;
+  /* margin: 20px; */
+  padding: 10px;
+  border-radius: 8px;
+  /* background-color: aliceblue; */
+}
+
+.accordion-label {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-weight: 500;
+  cursor:pointer;
+
+}
+
+.accordion-label::before {
+  content: '+';
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+input[type='radio'] {
+  display: none;
+}
+
+.accordion .content p {
+  padding-left: 20px;
+}
+
+.accordion .content {
+  color: #3d3d3d;
+  padding: 0 10px;
+  line-height: 26px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s, padding 0.3s;
+}
+
+.accordion input[type='radio']:checked + .accordion-label + .content {
+  max-height: 400px;
+  padding: 10px 10px 20px;
+}
+
+.accordion input[type='radio']:checked + .accordion-label::before {
+  content: '-';
+  font-size: 1.2rem;
+  margin-right: 10px;
+
+}
+
+
+.paymentButton {
+  background-color: rgb(73, 115, 255);
+  color: whitesmoke;
+}

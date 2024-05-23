@@ -4,17 +4,16 @@
   flex-direction: row;
   justify-content: start;
   flex-wrap: wrap;
-
+  padding: 3rem;
 }
-
 .product-card {
   width: 12em;
   height: 12em;
-  background-color: rgb(255, 255, 216);
-  /* padding: 1em; */
+  background-color: rgb(240, 240, 240);
   box-shadow: 0 5px 5px #e1e1e1;
-  margin: 3em;
+  margin: 0 3rem 3rem 0;
   text-decoration: none;
+  border-radius: .5rem
   
 }
 
@@ -30,7 +29,7 @@ li a {
 }
 
 .product-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .product-content {
